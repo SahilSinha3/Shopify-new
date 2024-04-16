@@ -1,0 +1,54 @@
+
+
+.payment-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #333; /* Dark border color */
+  border-radius: 8px;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text color */
+}
+.payment-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #333; /* Dark border color */
+  border-radius: 4px;
+  background-color: #222; /* Darker background for input */
+  color: #fff; /* White text color */
+}
+.form-group .payment-method-options label {
+  margin-right: 15px;
+}
+.form-group input[type="radio"] {
+  margin-right: 5px;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #008060;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #006B50;
+}
+.trial-period {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #00FF00; /* Adjust the color as needed */
+}

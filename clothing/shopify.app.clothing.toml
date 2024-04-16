@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "0439120b2226c28c6ce9efb4946e4af2"
+name = "Clothing"
+application_url = "https://pressed-psychological-welfare-assessment.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "zookie-cloth.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_customers,read_products,write_products"
+
+[auth]
+redirect_urls = [
+  "https://pressed-psychological-welfare-assessment.trycloudflare.com/auth/callback",
+  "https://pressed-psychological-welfare-assessment.trycloudflare.com/auth/shopify/callback",
+  "https://pressed-psychological-welfare-assessment.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false

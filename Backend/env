@@ -1,0 +1,8 @@
+# Get your API key from OpenAI
+GPT_API_KEY=your-api-key
+
+# Replace with your Vanna API Key
+VANNA_API_KEY=YOUR-VANNA-API-KEY
+
+# Replace with your mongo connection string
+MONGO_CONNECTION_STRING=your_mongo_connection_string_here
