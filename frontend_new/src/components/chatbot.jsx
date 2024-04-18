@@ -77,72 +77,114 @@ export default function Chatbot() {
   };
 
   return (
-  <div className="min-h-screen bg-white flex flex-col">
-    {!showChat && (
-      <button
-        className="fixed right-4 bottom-4 bg-black text-white hover:bg-gray-500 px-4 py-2 rounded-md"
-        onClick={() => setShowChat(true)}
-      >
-        Open Chat Again
-      </button>
-    )}
-    {showChat && (
-      <div className="fixed top-1/2 right-2 transform -translate-y-1/2 h-[600px] w-[400px] bg-white border rounded-lg shadow-lg overflow-hidden bg-opacity-50 backdrop-filter backdrop-blur-lg">
-        <div className="bg-gray-800 flex justify-between p-4 text-white font-bold paddingBottom '10px">
-         
-<button onClick={() => history.goBack()}>
-  <img src="/images/leftArrow.png" alt="Company Logo" style={{ height: '30px', marginRight: '16px' }} />
-</button>
-            <img src="/images/companyLogo.png" alt="Logo" style={{display: 'flex' , justifyContent: 'center', alignItems: 'center', height: '30px', }}/>
-          <button
-            className="text-white"
-            onClick={() => setShowChat(false)}
-          >
-                              <img src="/images/Multiply.png" alt="Company Logo" style={{ height: '30px', marginRight: '16px' }} />
-
-          </button>
-        </div>
-        <div className="max-w-screen-lg mx-auto p-8 my-4 overflow-y-auto" style={{ maxHeight: 'calc(600px - 64px - 64px)', paddingBottom: '2rem', textAlign: 'right', display: 'flex', flexDirection: 'column' }}>
-          {messages.map((message, index) => (
-            <div key={index} className={`message rounded-lg ${message.role === 'assistant' ? 'bg-blue-100 self-start' : 'bg-black self-end text-white'}`} style={{ padding: '0.5rem 1rem', marginBottom: '0.5rem' }}>
-              <span>{message.text_response}</span>
-            </div>
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
-        <div className="absolute bottom-0 w-full bg-white border-grey-600">
-          <form className="p-4 flex items-center" onSubmit={handleSendMessage}>
-            <input
-              id="message"
-              type="text"
-              autoComplete="off"
-              className="border-2 border-white rounded-md p-2 w-full focus:outline-none focus:border-transparent"
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Ask a question..."
-            />
-            <button
-              type="submit"
-              className={`ml-2 bg-black ${newMessage.trim() !== '' || isListening ? 'hover:bg-blue-600' : 'hidden'} text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-            >
-              Send
-            </button>
-            <button
-              type="button"
-              onClick={startListening}
-              className="ml-2 text-blue-500 hover:text-blue-600 px-4 py-2 rounded-md flex items-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
+    <div className="min-h-screen bg-white flex flex-col">
+      {!showChat && (
+        <button
+          className="fixed right-4 bottom-4 bg-black text-white hover:bg-gray-500 px-4 py-2 rounded-md"
+          onClick={() => setShowChat(true)}
+        >
+          Open Chat Again
+        </button>
+      )}
+      {showChat && (
+        <div
+          className="fixed top-1/2 right-2 transform -translate-y-1/2 h-[665px] w-[443px] bg-white border rounded-lg shadow-lg overflow-hidden bg-opacity-50 backdrop-filter backdrop-blur-lg"
+        >
+          <div className="bg-gray-800 flex justify-between p-4 text-white font-bold paddingBottom '10px">
+            <button onClick={() => history.goBack()}>
               <img
-                src={isListening ? "/images/microphone.png" : "/images/voice.png"}
-                alt="Speak"
-                style={{ width: '30px', height: '30px' }}
+                src="/images/leftArrow.png"
+                alt="Company Logo"
+                style={{ height: '30px', marginRight: '16px' }}
               />
             </button>
-          </form>
+            <img
+              src="/images/companyLogo.png"
+              alt="Logo"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '30px',
+              }}
+            />
+            <button
+              className="text-white"
+              onClick={() => setShowChat(false)}
+            >
+              <img
+                src="/images/Multiply.png"
+                alt="Company Logo"
+                style={{ height: '30px', marginRight: '16px' }}
+              />
+            </button>
+          </div>
+          <div
+            className="max-w-screen-lg mx-auto p-8 my-4 overflow-y-auto"
+            style={{
+              maxHeight: 'calc(600px - 64px - 64px)',
+              paddingBottom: '2rem',
+              textAlign: 'right',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`message rounded-lg ${message.role === 'assistant'
+                    ? 'bg-blue-100 self-start'
+                    : 'bg-black self-end text-white'
+                  }`}
+                style={{ padding: '0.5rem 1rem', marginBottom: '0.5rem' }}
+              >
+                <span>{message.text_response}</span>
+              </div>
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
+          <div className="absolute bottom-0 w-full bg-white border-grey-600">
+            <form
+              className="p-4 flex items-center"
+              onSubmit={handleSendMessage}
+            >
+              <input
+                id="message"
+                type="text"
+                autoComplete="off"
+                className="border-2 border-white rounded-md p-2 w-full focus:outline-none focus:border-transparent"
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                placeholder="Ask a question..."
+              />
+              <button
+                type="submit"
+                className={`ml-2 bg-black ${newMessage.trim() !== '' || isListening
+                    ? 'hover:bg-blue-600'
+                    : 'hidden'
+                  } text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+              >
+                Send
+              </button>
+              <button
+                type="button"
+                onClick={startListening}
+                className="ml-2 text-blue-500 hover:text-blue-600 px-4 py-2 rounded-md flex items-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                <img
+                  src={
+                    isListening
+                      ? '/images/microphone.png'
+                      : '/images/voice.png'
+                  }
+                  alt="Speak"
+                  style={{ width: '30px', height: '30px' }}
+                />
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    )}
-  </div>
-);
-
-}
+      )}
+    </div>
+  )
+};
