@@ -8,6 +8,9 @@ const ChatbotLauncher = () => {
   const navigateToChatbot = () => {
     navigate('/chatbot');
   };
+  //  const navigateToHome = () => {
+  //   navigate('http://localhost:5173/');
+  // };
 
   const openChatAgain = () => {
     setShowChat(true);
@@ -36,19 +39,21 @@ const ChatbotLauncher = () => {
             height: '665px',
             boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
             overflow: 'hidden',
-            fontFamily: 'Arial, sans-serif'
+            fontFamily: 'Arial, sans-serif',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           <div
             style={{
               backgroundColor: 'black',
               color: 'white',
-              padding: '20px 20px 50px 20px',
+              padding: '20px 20px 0px 20px',
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
             }}
           >
             <div
@@ -56,7 +61,7 @@ const ChatbotLauncher = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                width: '100%'
+                width: '100%',
               }}
             >
               <img
@@ -69,7 +74,7 @@ const ChatbotLauncher = () => {
                   background: 'none',
                   border: 'none',
                   cursor: 'pointer',
-                  color: 'white'
+                  color: 'white',
                 }}
                 onClick={() => setShowChat(false)}
               >
@@ -80,102 +85,125 @@ const ChatbotLauncher = () => {
                 />
               </button>
             </div>
-            <h1 style={{ marginTop: '100px', fontSize: '32px', textAlign: 'left' }}>
+            <h1 style={{ marginTop: '100px', fontSize: '30px', textAlign: 'left' , fontWeight: 'bold' }}>
               Hi Vivek 👋
             </h1>
-            <p style={{ marginTop: '5px', fontSize: '16px', color: 'grey' }}>
+            <h3 style={{ marginTop: '5px', fontSize: '25px', color: 'grey', textAlign: 'left' }}>
               How can I help you today?
-            </p>
+            </h3>
+            <button
+  onClick={navigateToChatbot}
+  style={{
+    backgroundColor: 'white',
+    boxShadow: '0 0 0 1px lightgrey, 0 10px 8px rgba(0,0,0,0.1)',
+    borderRadius: '20px',
+    padding: '20px 30px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    margin: '10px auto',
+    width: 'auto',
+    display: 'flex', // Changed to flex to accommodate inline elements
+    alignItems: 'center', // Aligns items vertically at the center
+    justifyContent: 'space-between', // Distributes space between and around content items
+    position: 'relative',
+    bottom: '-30px',
+  }}
+>
+  <div style={{ textAlign: 'left' }}> {/* Text block wrapper for alignment */}
+    <h2
+      style={{
+        fontSize: '20px',
+        color: 'black',
+        fontStyle: 'oblique',
+        fontWeight: 'bold',
+        margin: 0, // Removes margin to align properly within the button
+      }}
+    >
+      Ask a Question
+      <br />
+      <p
+        style={{
+          fontSize: '16px',
+          color: 'grey',
+          fontStyle: 'oblique',
+          margin: 0, // Ensures no extra space affects flex layout
+        }}
+      >
+        Our Bot and team will help you
+      </p>
+    </h2>
+  </div>
+  <img
+    src="/images/Help.png" 
+    alt="Help"
+    style={{
+      height: '34px', 
+      paddingLeft: '35px',
+    }}
+  />
+</button>
+
           </div>
           <div
             style={{
-              padding: '20px',
-              textAlign: 'center',
-              paddingBottom: '120px'
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              paddingBottom: '120px',
             }}
           >
-            <button
-              onClick={navigateToChatbot}
+            {/* Content */}
+          </div>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+            <hr
               style={{
+                color: '#ccc',
+                borderTop: '1px solid',
+                width: '110%',
+              }}
+            />
+            <div
+              style={{
+                borderTop: '1px solid #eee',
+                padding: '15px 0px 0px 0px',
+                display: 'flex',
+                justifyContent: 'space-around',
                 backgroundColor: 'white',
-                border: '1px solid black',
-                boxShadow: '0 0 0 1px lightgrey, 0 10px 8px rgba(0,0,0,0.1)',
-                borderRadius: '20px',
-                paddingLeft: '10px',
-                paddingRight: '100px',
-                paddingTop: '10px',
-                paddingBottom: '10px',
-                cursor: 'pointer',
-                fontSize: '16px',
-                margin: '10px auto',
-                display: 'block'
               }}
             >
-              {/* <img src="/path/to/logo.png" alt="Logo" style={{ height: '30px', marginRight: '2px' }} /> */}
-              <h2
-                style={{
-                  fontSize: '20px',
-                  textAlign: 'left',
-                  fontStyle: 'oblique',
-                  fontWeight: 'bold'
-                }}
+              <button style={{ background: 'none', border: 'none' }}>
+                <img
+                  src="/images/Home.png"
+                  alt="Home button"
+                  style={{ height: '40px', marginRight: '16px' }}
+                />
+              </button>
+              <button
+                style={{ background: 'none', border: 'none' }}
+                onClick={navigateToChatbot}
               >
-                Ask a Question
-              </h2>
-              <p
-                style={{
-                  marginTop: '5px',
-                  fontSize: '16px',
-                  color: 'grey'
-                }}
-              >
-                Our Bot and Team will help you
-              </p>
-            </button>
-          </div>
-          <hr
-            style={{
-              color: '#ccc',
-              borderTop: '1px solid',
-              width: '110%'
-            }}
-          />
+                <img
+                  src="/images/Letter.png"
+                  alt="Message button"
+                  style={{ height: '37px', marginRight: '16px' }}
+                />
+              </button>
+            </div>
           <div
-            style={{
-              borderTop: '1px solid #eee',
-              padding: '15px 0px 0px 0px',
-              display: 'flex',
-              justifyContent: 'space-around',
-              backgroundColor: '#f9f9f9'
-            }}
-          >
-            <button style={{ background: 'none', border: 'none' }}>
-              <img
-                src="/images/home.png"
-                alt="Home button"
-                style={{ height: '30px', marginRight: '16px' }}
-              />
-            </button>
-            <button
-              style={{ background: 'none', border: 'none' }}
-              onClick={navigateToChatbot}
-            >
-              <img
-                src="/images/message.jpg"
-                alt="Message button"
-                style={{ height: '30px', marginRight: '16px' }}
-              />
-            </button>
-          </div>
-          <div
-            style={{
-              textAlign: 'center',
-              color: 'grey',
-              fontSize: '12px',
-              padding: '10px'
-            }}
-          >
-            Powered by ↑ AIXL
+  style={{
+    display: 'flex',            
+    alignItems: 'center',       
+    justifyContent: 'center',   
+    color: 'grey',
+    fontSize: '12px',
+    padding: '10px',
+  }}
+>
+  Powered by
+  <img src="/images/aixl.png" alt="Company logo" style={{ height: '12px', marginLeft: '8px', marginRight: '8px' }}/>
+</div>
+
           </div>
         </div>
       )}
@@ -183,4 +211,4 @@ const ChatbotLauncher = () => {
   );
 };
 
-export default ChatbotLauncher;
+export default ChatbotLauncher; 
