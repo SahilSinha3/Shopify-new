@@ -104,9 +104,9 @@ const ChatbotLauncher = () => {
     fontSize: '16px',
     margin: '10px auto',
     width: 'auto',
-    display: 'flex', // Changed to flex to accommodate inline elements
-    alignItems: 'center', // Aligns items vertically at the center
-    justifyContent: 'space-between', // Distributes space between and around content items
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'space-between',
     position: 'relative',
     bottom: '-30px',
   }}
@@ -116,9 +116,9 @@ const ChatbotLauncher = () => {
       style={{
         fontSize: '20px',
         color: 'black',
-        fontStyle: 'oblique',
+        // fontStyle: 'oblique',
         fontWeight: 'bold',
-        margin: 0, // Removes margin to align properly within the button
+        margin: 0, 
       }}
     >
       Ask a Question
@@ -127,8 +127,8 @@ const ChatbotLauncher = () => {
         style={{
           fontSize: '16px',
           color: 'grey',
-          fontStyle: 'oblique',
-          margin: 0, // Ensures no extra space affects flex layout
+          // fontStyle: 'oblique',
+          margin: 0, 
         }}
       >
         Our Bot and team will help you
@@ -175,17 +175,17 @@ const ChatbotLauncher = () => {
   }}
 >
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    <button style={{ background: 'none', border: 'none' }} onClick={handleBack}>
+    <button style={{ background: 'none', border: 'none' }} >
       <img
-        src="/images/Home.png"
+        src="/images/homebutton.png"
         alt="Home button"
         style={{ height: '40px', marginBottom: '10px' }}  // Added marginBottom for spacing
       />
     </button >
     <img
-      src="/images/homeicon.png"  // Specify the source for the first image
-      alt="Home button"  // Provide an appropriate alt text
-      style={{ height: '10px' }}  // Adjust height as needed
+      src="/images/homeicon.png"  
+      alt="Home button"  
+      style={{ height: '10px' }}  // Adjust height as neededa
     />
   </div>
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
