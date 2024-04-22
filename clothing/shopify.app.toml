@@ -2,7 +2,7 @@
 
 client_id = "0439120b2226c28c6ce9efb4946e4af2"
 name = "Clothing"
-application_url = "https://contacts-mia-potatoes-cat.trycloudflare.com"
+application_url = "https://donate-horses-agents-argue.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_product_listings,read_products,read_script_tags,read_themes,write
 
 [auth]
 redirect_urls = [
-  "https://contacts-mia-potatoes-cat.trycloudflare.com/auth/callback",
-  "https://contacts-mia-potatoes-cat.trycloudflare.com/auth/shopify/callback",
-  "https://contacts-mia-potatoes-cat.trycloudflare.com/api/auth/callback"
+  "https://donate-horses-agents-argue.trycloudflare.com/auth/callback",
+  "https://donate-horses-agents-argue.trycloudflare.com/auth/shopify/callback",
+  "https://donate-horses-agents-argue.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

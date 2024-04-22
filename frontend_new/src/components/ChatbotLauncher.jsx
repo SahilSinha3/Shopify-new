@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ChatbotLauncher = () => {
   const navigate = useNavigate();
-  const [showChat, setShowChat] = useState(false);
+  const [showChat, setShowChat] = useState(true);
 
   const navigateToChatbot = () => {
     navigate('/chatbot');
@@ -15,7 +15,9 @@ const ChatbotLauncher = () => {
   const openChatAgain = () => {
     setShowChat(true);
   };
-
+  const handleBack = () => {
+    navigate('/');
+  };
   return (
     <div>
       {!showChat && (
@@ -36,7 +38,7 @@ const ChatbotLauncher = () => {
             backgroundColor: 'white',
             borderRadius: '24px',
             width: '443px',
-            height: '665px',
+            height: '785px',
             boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
             overflow: 'hidden',
             fontFamily: 'Arial, sans-serif',
@@ -163,33 +165,45 @@ const ChatbotLauncher = () => {
                 width: '110%',
               }}
             />
-            <div
-              style={{
-                borderTop: '1px solid #eee',
-                padding: '15px 0px 0px 0px',
-                display: 'flex',
-                justifyContent: 'space-around',
-                backgroundColor: 'white',
-              }}
-            >
-              <button style={{ background: 'none', border: 'none' }}>
-                <img
-                  src="/images/Home.png"
-                  alt="Home button"
-                  style={{ height: '40px', marginRight: '16px' }}
-                />
-              </button>
-              <button
-                style={{ background: 'none', border: 'none' }}
-                onClick={navigateToChatbot}
-              >
-                <img
-                  src="/images/Letter.png"
-                  alt="Message button"
-                  style={{ height: '37px', marginRight: '16px' }}
-                />
-              </button>
-            </div>
+          <div
+  style={{
+    borderTop: '1px solid #eee',
+    padding: '15px 0px 0px 0px',
+    display: 'flex',
+    justifyContent: 'space-around',
+    backgroundColor: 'white',
+  }}
+>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <button style={{ background: 'none', border: 'none' }} onClick={handleBack}>
+      <img
+        src="/images/Home.png"
+        alt="Home button"
+        style={{ height: '40px', marginBottom: '10px' }}  // Added marginBottom for spacing
+      />
+    </button >
+    <img
+      src="/images/homeicon.png"  // Specify the source for the first image
+      alt="Home button"  // Provide an appropriate alt text
+      style={{ height: '10px' }}  // Adjust height as needed
+    />
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <button style={{ background: 'none', border: 'none' }} onClick={navigateToChatbot}>
+      <img
+        src="/images/Letter.png"
+        alt="Message button"
+        style={{ height: '37px', marginBottom: '10px' }}  // Added marginBottom for spacing
+      />
+    </button>
+    <img
+      src="/images/Message.png"  // Specify the source for the second image
+      alt="Description for the second image"  // Provide an appropriate alt text
+      style={{ height: '10px' }}  // Adjust height as needed
+    />
+  </div>
+</div>
+
           <div
   style={{
     display: 'flex',            
