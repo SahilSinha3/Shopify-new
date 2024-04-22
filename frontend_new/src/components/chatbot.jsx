@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 export default function Chatbot() {
+  const navigate = useNavigate();
   const [newMessage, setNewMessage] = useState('');
   const [showChat, setShowChat] = useState(true);
   const [messages, setMessages] = useState([]);
@@ -76,6 +79,10 @@ export default function Chatbot() {
     recognition.start();
   };
 
+  const handleGoBack = () => {
+    navigate('/ChatbotLauncher');
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {!showChat && (
@@ -88,13 +95,16 @@ export default function Chatbot() {
       )}
       {showChat && (
         <div
-          className="fixed top-1/2 right-2 transform -translate-y-1/2 h-[665px] w-[443px] bg-white border rounded-lg shadow-lg overflow-hidden bg-opacity-50 backdrop-filter backdrop-blur-lg"
+          className="fixed top-1/2 right-[46px] transform -translate-y-1/2 h-[785px] w-[443px] bg-white border rounded-lg shadow-lg overflow-hidden bg-opacity-50 backdrop-filter backdrop-blur-lg"
+          style={{
+            borderRadius: '24px'
+          }}
         >
           <div className="bg-gray-800 flex justify-between p-4 text-white font-bold paddingBottom '10px">
-            <button onClick={() => history.goBack()}>
+            <button onClick={handleGoBack}>
               <img
                 src="/images/leftArrow.png"
-                alt="Company Logo"
+                alt="Backbutton"
                 style={{ height: '30px', marginRight: '16px' }}
               />
             </button>
@@ -120,27 +130,38 @@ export default function Chatbot() {
             </button>
           </div>
           <div
-            className="max-w-screen-lg mx-auto p-8 my-4 overflow-y-auto"
+            className="max-w-screen-lg mx-auto overflow-y-auto"
             style={{
-              maxHeight: 'calc(600px - 64px - 64px)',
+              height: 'calc(100% - 128px)',
               paddingBottom: '2rem',
+              paddingTop: '2rem',
+              paddingRight: '1rem',
               textAlign: 'right',
               display: 'flex',
               flexDirection: 'column',
             }}
           >
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`message rounded-lg ${message.role === 'assistant'
+            {messages.length === 0 ? (
+              <div className="flex flex-col items-center justify-center h-full">
+                <img src="/images/Letter.png" alt="Message icon"
+                style={{ height: '30px', alignContent: 'center'}}/>
+                <h1 className="text-2xl font-bold mb-4">No messages</h1>
+                <p className="text-gray-500">Message from the team will be shown here.</p>
+              </div>
+            ) : (
+              messages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`message rounded-lg ${message.role === 'assistant'
                     ? 'bg-blue-100 self-start'
                     : 'bg-black self-end text-white'
-                  }`}
-                style={{ padding: '0.5rem 1rem', marginBottom: '0.5rem' }}
-              >
-                <span>{message.text_response}</span>
-              </div>
-            ))}
+                    }`}
+                  style={{ padding: '0.5rem 1rem', marginBottom: '0.5rem' }}
+                >
+                  <span>{message.text_response}</span>
+                </div>
+              ))
+            )}
             <div ref={messagesEndRef} />
           </div>
           <div className="absolute bottom-0 w-full bg-white border-grey-600">
@@ -187,4 +208,4 @@ export default function Chatbot() {
       )}
     </div>
   )
-};
+}
