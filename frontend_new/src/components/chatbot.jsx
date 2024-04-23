@@ -11,7 +11,7 @@ export default function Chatbot() {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    const webSocket = new WebSocket('ws://localhost:3000');
+    const webSocket = new WebSocket('ws://localhost:5000');
 
     webSocket.onopen = () => {
       console.log("WebSocket connection established");
@@ -152,11 +152,11 @@ export default function Chatbot() {
               messages.map((message, index) => (
                 <div
                   key={index}
-                  className={`message rounded-lg ${message.role === 'assistant'
-                    ? 'bg-blue-100 self-start'
-                    : 'bg-black self-end text-white'
+                  className={`message rounded-lg p-2 mb-2 ${message.role === 'assistant'
+                    ? 'bg-black text-white self-start'
+                    : 'bg-black text-white self-end'
                     }`}
-                  style={{ padding: '0.5rem 1rem', marginBottom: '0.5rem' }}
+                  style={{ wordBreak: 'break-word', maxWidth: '80%' }}
                 >
                   <span>{message.text_response}</span>
                 </div>
