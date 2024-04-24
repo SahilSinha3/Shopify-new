@@ -40,6 +40,19 @@ export default function Chatbot() {
   }, []);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setMessages([
+        {
+          role: 'assistant',
+          text_response: 'Please enter your shop URL.',
+        },
+      ]);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
@@ -136,6 +149,7 @@ export default function Chatbot() {
               paddingBottom: '2rem',
               paddingTop: '2rem',
               paddingRight: '1rem',
+              paddingLeft: '1rem',
               textAlign: 'right',
               display: 'flex',
               flexDirection: 'column',
@@ -196,16 +210,16 @@ export default function Chatbot() {
                   src={
                     isListening
                       ? '/images/microphone.png'
-                      : '/images/voice.png'
-                  }
-                  alt="Speak"
-                  style={{ width: '30px', height: '30px' }}
-                />
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
-  )
+: '/images/voice.png'
+}
+alt="Speak"
+style={{ width: '30px', height: '30px' }}
+/>
+</button>
+</form>
+</div>
+</div>
+)}
+</div>
+)
 }
