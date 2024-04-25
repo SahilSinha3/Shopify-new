@@ -44,10 +44,10 @@ export default function Chatbot() {
       setMessages([
         {
           role: 'assistant',
-          text_response: 'Please enter your shop URL.',
+          text_response: 'Hi! I am Shopsy. Your Shopify AI Assistant. How can I help you Today?',
         },
       ]);
-    }, 5000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -158,7 +158,7 @@ export default function Chatbot() {
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full">
                 <img src="/images/Letter.png" alt="Message icon"
-                style={{ height: '30px', alignContent: 'center'}}/>
+                  style={{ height: '30px', alignContent: 'center' }} />
                 <h1 className="text-2xl font-bold mb-4">No messages</h1>
                 <p className="text-gray-500">Message from the team will be shown here.</p>
               </div>
@@ -195,8 +195,8 @@ export default function Chatbot() {
               <button
                 type="submit"
                 className={`ml-2 bg-black ${newMessage.trim() !== '' || isListening
-                    ? 'hover:bg-blue-600'
-                    : 'hidden'
+                  ? 'hover:bg-blue-600'
+                  : 'hidden'
                   } text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
               >
                 Send
@@ -210,16 +210,16 @@ export default function Chatbot() {
                   src={
                     isListening
                       ? '/images/microphone.png'
-: '/images/voice.png'
-}
-alt="Speak"
-style={{ width: '30px', height: '30px' }}
-/>
-</button>
-</form>
-</div>
-</div>
-)}
-</div>
-)
+                      : '/images/voice.png'
+                  }
+                  alt="Speak"
+                  style={{ width: '30px', height: '30px' }}
+                />
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
