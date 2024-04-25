@@ -40,6 +40,19 @@ export default function Chatbot() {
   }, []);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setMessages([
+        {
+          role: 'assistant',
+          text_response: 'Hi! I am Shopsy. Your Shopify AI Assistant. How can I help you Today?',
+        },
+      ]);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
@@ -136,6 +149,7 @@ export default function Chatbot() {
               paddingBottom: '2rem',
               paddingTop: '2rem',
               paddingRight: '1rem',
+              paddingLeft: '1rem',
               textAlign: 'right',
               display: 'flex',
               flexDirection: 'column',
@@ -144,7 +158,7 @@ export default function Chatbot() {
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full">
                 <img src="/images/Letter.png" alt="Message icon"
-                style={{ height: '30px', alignContent: 'center'}}/>
+                  style={{ height: '30px', alignContent: 'center' }} />
                 <h1 className="text-2xl font-bold mb-4">No messages</h1>
                 <p className="text-gray-500">Message from the team will be shown here.</p>
               </div>
@@ -181,8 +195,8 @@ export default function Chatbot() {
               <button
                 type="submit"
                 className={`ml-2 bg-black ${newMessage.trim() !== '' || isListening
-                    ? 'hover:bg-blue-600'
-                    : 'hidden'
+                  ? 'hover:bg-blue-600'
+                  : 'hidden'
                   } text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
               >
                 Send
