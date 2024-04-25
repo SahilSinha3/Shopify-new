@@ -44,7 +44,7 @@ export default function Chatbot() {
       setMessages([
         {
           role: 'assistant',
-          text_response: 'Hi! I am Shopsy. Your Shopify AI Assistant. How can I help you Today?',
+          text_response: 'Hi!! I am Shopsy. Your Shopify AI Assistant. How can I help you Today?',
         },
       ]);
     }, 2000);
