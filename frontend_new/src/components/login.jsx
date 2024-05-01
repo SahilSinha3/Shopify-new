@@ -8,7 +8,7 @@ function Login() {
 
     const handleButtonClick = (event) => {
         event.preventDefault();
-        navigate('/ChatbotLauncher');
+        navigate('/Chatbot');
     };
 
     return (
